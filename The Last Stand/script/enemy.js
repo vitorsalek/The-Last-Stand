@@ -8,8 +8,11 @@
  * Class Enemy
  * @param initPosX - initial position xx
  * @param initPosY - initial position yy
+ * @param amplitude
  */
-function Enemy(initPosX, initPosY) {
+function Enemy(initPosX, initPosY, amplitude) {
+
+	var initialPosX=initPosX;
 
 	//image src
 	var imgSrc = './images/enemy.png';
@@ -63,11 +66,12 @@ function Enemy(initPosX, initPosY) {
 	 * Verifies if the enemies needs to change of action
 	 */
 	this.checkStep = function() {
-		if(sprite.x <= 10 && currentAction == 'left') {
+		if(sprite.x <= 10 && currentAction == 'left' ||  this.getPositionX()<=(initialPosX-amplitude)) {
 			currentAction = 'right';
-		}else if(sprite.x >= (WINDOW_WIDTH - 10) && currentAction == 'right') {
+		}else if(sprite.x >= (WINDOW_WIDTH - 10) && currentAction == 'right' || this.getPositionX()>=(initialPosX+amplitude)) {
 			currentAction = 'left';
 		}
+		
 		return currentAction;
 	}
 

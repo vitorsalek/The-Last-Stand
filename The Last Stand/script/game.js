@@ -17,9 +17,9 @@ var drawWindow = function() {
  * @param numRows - indicate the number of rows
  * @param numCols - indicate the number of columns
  */
-var createEnemies = function(numRows, numCols) {
+var createEnemies = function(numRows, numCols, posX, amplitude) {
 	//reference position xx
-	var refPosX = (WINDOW_WIDTH / 2); 
+	var refPosX = posX; 
 	//reference position yy
 	var refPosY = (WINDOW_HEIGHT / 10);
 	//add enemies horde
@@ -30,10 +30,12 @@ var createEnemies = function(numRows, numCols) {
 			//position yy
 			var posY = refPosY + (40 * y);
 			//add an enemy to the array
-			enemies[enemies.length] = new Enemy(posX, posY);
+			enemies[enemies.length] = new Enemy(posX, posY, amplitude);
 		}
 	}
 }
+
+
 
 /**
  * Animate elements
@@ -88,6 +90,12 @@ var detectColisions = function() {
 				enemies.splice(indexEnemy, 1);
 				break;
 			}
+		}
+	}
+	for(indexEnemy in enemies) {
+		if(colisionHandler.detectColisionBetweenObjects(player, enemies[indexEnemy])) {
+			enemies.splice(indexEnemy, 1);
+			break;
 		}
 	}
 }
@@ -150,6 +158,7 @@ play.src = "./images/play.png";
 
 backGround=new Image();
 backGround.src = "./images/space.jpg";
+
 backGround.onload = function() {
     context.drawImage(backGround, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 	context.drawImage(play, (WINDOW_WIDTH/2)-50, (WINDOW_HEIGHT/2)-50, 100, 100);
@@ -167,7 +176,8 @@ var lasers = new Array();
 var enemies = new Array();
 
 //add enemies
-//createEnemies(6, 6);
+createEnemies(2, 3, 30, 100);
+createEnemies(4, 2, 500,100);
 
 //handle events when the a key is pressed
 document.onkeypress = function(e) {

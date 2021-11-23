@@ -79,6 +79,6 @@ function Sprite(increment) {
 	 * Move sprite to the front
 	 */
 	this.moveFront = function() {
-		this.setPosition(this.x, this.y + (increment * 3));
+		this.setPosition(this.x, this.y + (increment * 6));
 	}
 }

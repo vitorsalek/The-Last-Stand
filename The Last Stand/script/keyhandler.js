@@ -9,13 +9,16 @@
  */
 function KeyHandler() {
 	//define the Z key
- 	this.Z_KEY = 122;
- 	this.z_KEY = 90;
+ 	this.Z_KEY = 97;
+ 	this.z_KEY = 65;
  	//define the X key
- 	this.X_KEY = 120;
- 	this.x_KEY = 88;
+ 	this.X_KEY = 100;
+ 	this.x_KEY = 68;
  	//define the space key
- 	this.SPACE_KEY = 32;
+	this.W_KEY = 119;
+	//this.space_KEY = 87;
+	
+ 	
 
  	/**
  	 * Handle the events when a key is pressed
@@ -24,7 +27,7 @@ function KeyHandler() {
  	 */
  	this.keyPress = function(e) {
  		keyPressed = e.which ? e.which : window.event.keyCode;
-
+		console.log(window.event.keyCode)
  		switch(keyPressed) {
  			case this.Z_KEY:
  			case this.z_KEY:
@@ -34,10 +37,13 @@ function KeyHandler() {
  			case this.x_KEY:
  				player.movingRight = true;
  				break;
- 			case this.SPACE_KEY:
+			/*case this.SPACE_KEY:
+ 			case this.space_KEY:
  				lasers[lasers.length] = new Laser(player);
- 				break;
+ 				break;*/
  		}
+		if(keyPressed==this.W_KEY)
+			lasers[lasers.length] = new Laser(player);
  	}
 
  	/**
