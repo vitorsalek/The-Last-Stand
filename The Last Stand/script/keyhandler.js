@@ -17,7 +17,7 @@ function KeyHandler() {
  	//define the space key
 	this.W_KEY = 119;
 	//this.space_KEY = 87;
-	
+	var canFire = true
  	
 
  	/**
@@ -42,8 +42,30 @@ function KeyHandler() {
  				lasers[lasers.length] = new Laser(player);
  				break;*/
  		}
-		if(keyPressed==this.W_KEY)
+
+
+ 	}
+
+ 	/**
+ 	 * Handle the events when a key is pressed
+ 	 * @param e - event
+ 	 * @param player - player
+ 	 */
+
+  	this.keyPress2 = function(e) {
+ 		keyPressed = e.which ? e.which : window.event.keyCode;
+		console.log(window.event.keyCode)
+		if(keyPressed==this.W_KEY && canFire == true){
+			canFire = false;
 			lasers[lasers.length] = new Laser(player);
+			setTimeout(Fire, 200);
+		}
+
+
+ 	}
+
+ 	function Fire() {
+ 		canFire = true
  	}
 
  	/**

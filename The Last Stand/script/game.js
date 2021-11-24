@@ -154,14 +154,15 @@ frameWindow.height = WINDOW_HEIGHT;
 var context = frameWindow.getContext("2d");
 
 play=new Image();
-play.src = "./images/play.png";
+play.src = "./images/new_logo.png";
 
 backGround=new Image();
 backGround.src = "./images/space.jpg";
 
 backGround.onload = function() {
     context.drawImage(backGround, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-	context.drawImage(play, (WINDOW_WIDTH/2)-50, (WINDOW_HEIGHT/2)-50, 100, 100);
+	//context.drawImage(play, (WINDOW_WIDTH/2)-50, (WINDOW_HEIGHT/2)-50, 100, 100);
+	context.drawImage(play, (WINDOW_WIDTH/2)-251, (WINDOW_HEIGHT/2)-11, 502, 227);
 }
 
 //keyhandler object
@@ -178,10 +179,13 @@ var enemies = new Array();
 //add enemies
 createEnemies(2, 3, 30, 100);
 createEnemies(4, 2, 500,100);
+createEnemies(1, 5, 200,100);
+
 
 //handle events when the a key is pressed
 document.onkeypress = function(e) {
-	keyHandler.keyPress(e);	
+	keyHandler.keyPress(e);
+	keyHandler.keyPress2(e);		
 }
 
 //handle events when the key is released

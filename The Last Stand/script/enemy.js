@@ -15,11 +15,11 @@ function Enemy(initPosX, initPosY, amplitude) {
 	var initialPosX=initPosX;
 
 	//image src
-	var imgSrc = './images/enemy.png';
+	var imgSrc = './images/rsz_enemy2.png';
 	//width
-	this.width = 22;
+	this.width = 44;
 	//height
-	this.height = 16;
+	this.height = 32;
 
 	//enemy sprite
 	var sprite = new Sprite(3);

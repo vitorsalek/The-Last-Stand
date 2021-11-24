@@ -10,11 +10,11 @@
 function Player() {
 
 	//image src
-	var imgSrc = './images/ship.png';
+	var imgSrc = './images/rsz_nave.png';
 	//width
-	this.width = 26;
+	this.width = 104;
 	//height
-	this.height = 16;
+	this.height = 64;
 
 	//indicates if the sprite is moving left
 	this.movingLeft = false;
@@ -24,7 +24,7 @@ function Player() {
 	//create the player sprite
 	var sprite = new Sprite(20);
 	//set sprite image and size
-	sprite.initImage('./images/ship.png', 26, 16);
+	sprite.initImage('./images/rsz_nave.png', 104, 64);
 	//set initial position of the sprite
 	sprite.initPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 100);
 
