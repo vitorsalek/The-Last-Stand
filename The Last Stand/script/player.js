@@ -21,8 +21,10 @@ function Player() {
 	//indicates if the sprite is moving right
 	this.movingRight = false;
 
+	this.life = 10;
+
 	//create the player sprite
-	var sprite = new Sprite(20);
+	var sprite = new Sprite(14);
 	//set sprite image and size
 	sprite.initImage('./images/rsz_nave.png', 104, 64);
 	//set initial position of the sprite

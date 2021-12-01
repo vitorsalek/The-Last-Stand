@@ -10,7 +10,7 @@
  * @param initPosY - initial position yy
  * @param amplitude
  */
-function Enemy(initPosX, initPosY, amplitude) {
+function Enemy(initPosX, initPosY, amplitude, speed) {
 
 	var initialPosX=initPosX;
 
@@ -22,7 +22,7 @@ function Enemy(initPosX, initPosY, amplitude) {
 	this.height = 32;
 
 	//enemy sprite
-	var sprite = new Sprite(3);
+	var sprite = new Sprite(3.2);
 	//set image and size
 	sprite.initImage(imgSrc, this.width, this.height);
 	//set initial position of the sprite
@@ -30,6 +30,8 @@ function Enemy(initPosX, initPosY, amplitude) {
 
 	//initial action
 	var currentAction = 'left';
+
+	var previousAction = 'left';
 
 	/**
 	 * Draws the enemy sprite
@@ -49,37 +51,38 @@ function Enemy(initPosX, initPosY, amplitude) {
 			sprite.moveRight();
 		}
 	}
+	this.checkHeight = function(height) {
+		if(sprite.y >= height+10)	return true;
+		return false;		
+	}
 
 	/**
 	 * Simulates one jump forward
 	 */
 	this.jump = function() {
-		if(currentAction == 'left') {
-			currentAction = 'right';
-		}else {
-			currentAction = 'left';
-		}
-		sprite.moveFront();
+		sprite.moveFront(speed);		
 	}
 
 	/**
 	 * Verifies if the enemies needs to change of action
 	 */
-	this.checkStep = function() {
-		if(sprite.x <= 10 && currentAction == 'left' ||  this.getPositionX()<=(initialPosX-amplitude)) {
+	this.checkStep = function() 
+	{
+		if(this.getPositionX() <= 10 && currentAction == 'left' ||  this.getPositionX()<=(initialPosX-amplitude) && currentAction == 'left') {
 			currentAction = 'right';
-		}else if(sprite.x >= (WINDOW_WIDTH - 10) && currentAction == 'right' || this.getPositionX()>=(initialPosX+amplitude)) {
+			return true;
+		}else if(this.getPositionX() >= (WINDOW_WIDTH - 10) && currentAction == 'right' || this.getPositionX()>=(initialPosX+amplitude) && currentAction == 'right') {
 			currentAction = 'left';
+			return true;
 		}
-		
-		return currentAction;
+		return false;
 	}
 
 	/**
 	  * Return the position xx of the enemy
 	  */
 	 this.getPositionX = function() {
-	 	return sprite.x;
+	 	return sprite.x-20;
 	 }
 
 	 /**

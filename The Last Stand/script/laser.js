@@ -10,7 +10,7 @@
  */
 function Laser(player) {
 	//increment
-	const INCREMENT = 20;
+	const INCREMENT = 10;
 	//laser width
 	this.width = 5;
 	//laser height

@@ -6,16 +6,25 @@
 	</head>
 	<body>
 		<header>
-			Mengo
-			<!-- <img height= 150px src="images/new_logo.png" /> -->
+			<img height= 150px src="images/new_logo.png" />
 		</header>
 		<h2></h2>
 		</br>
-		<h2 id= horde> Onda: 2
-		<h2 id= life> Vidas: 3 </h2> 
+		<h2 id= horde> Onda: 2 </h2> 
+		<span id= life style='color: white;'>Vidas: 3</span>
+		<span id= points style='color: white;'>Pontos: 0 </span>
+		</br>
+		</br>
 		<canvas id="content"></canvas>
 		<br>
-		<button onclick="Update()">Jogar</button><br>
+		<br/>
+		<input id="easy" type="radio" name="nome" value=0 /> <span style='color: white;'>Fácil</span>
+		<input id="medium" type="radio" name="nome" value=0/> <span style='color: white;'>Médio</span>
+		<input id="hard" type="radio" name="nome" value=0/> <span style='color: white;'>Difícil</span>
+		<br/>
+		<br/>
+		<button onclick="Start()">Jogar</button><br><br>
+		<button onclick="restartGame()">Recomeçar</button><br>
 		
 		<br><br>
 		<h1> -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- </h1>

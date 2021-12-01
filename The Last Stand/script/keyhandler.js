@@ -27,7 +27,7 @@ function KeyHandler() {
  	 */
  	this.keyPress = function(e) {
  		keyPressed = e.which ? e.which : window.event.keyCode;
-		console.log(window.event.keyCode)
+		//console.log(window.event.keyCode)
  		switch(keyPressed) {
  			case this.Z_KEY:
  			case this.z_KEY:
@@ -37,10 +37,6 @@ function KeyHandler() {
  			case this.x_KEY:
  				player.movingRight = true;
  				break;
-			/*case this.SPACE_KEY:
- 			case this.space_KEY:
- 				lasers[lasers.length] = new Laser(player);
- 				break;*/
  		}
 
 
@@ -54,11 +50,11 @@ function KeyHandler() {
 
   	this.keyPress2 = function(e) {
  		keyPressed = e.which ? e.which : window.event.keyCode;
-		console.log(window.event.keyCode)
+		//console.log(window.event.keyCode)
 		if(keyPressed==this.W_KEY && canFire == true){
 			canFire = false;
 			lasers[lasers.length] = new Laser(player);
-			setTimeout(Fire, 200);
+			setTimeout(Fire, fireRateInterval);
 		}
 
 
