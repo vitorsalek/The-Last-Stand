@@ -15,7 +15,7 @@ function Enemy(initPosX, initPosY, amplitude, speed) {
 	var initialPosX=initPosX;
 
 	//image src
-	var imgSrc = './images/rsz_enemy2.png';
+	var imgSrc = './images/rsz_enemy5.png';
 	//width
 	this.width = 44;
 	//height
